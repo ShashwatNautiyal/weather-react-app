@@ -1,38 +1,208 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	color: #ffffff;
+	font-family: 'Poppins', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #23074d;
+	background: -webkit-linear-gradient(to right, #23074d, #cc5333);
+	background: linear-gradient(to right, #23074d, #cc5333);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.weather-card {
+	width: 50vw;
+	padding: 2rem;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+	box-shadow: 2px 2px 6px rgba(27, 27, 27, 0.7);
 }
 
-.App-link {
-  color: #61dafb;
+.input-box {
+	display: flex;
+	margin-bottom: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-box .input {
+	width: calc(100% - 50px);
+	margin-right: 5px;
+	padding: 0.5rem 1rem;
+	font-size: 16px;
+	color: #ffffff;
+	border-radius: 25px;
+	outline: none;
+	background: rgb(0, 0, 0, 0.7);
+	border: none;
+}
+
+.searchSugg {
+	position: relative;
+}
+
+.searchSugg ul {
+	position: absolute;
+	max-height: 190px;
+	overflow: hidden;
+	top: -16px;
+	list-style: none;
+	background: rgba(0, 0, 0, 0.65);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	width: calc(100% - 50px);
+	border-radius: 0 0 19px 19px;
+}
+
+.active {
+	border-radius: 20px 20px 0 0 !important;
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.remove {
+	display: none;
+}
+
+.searchSugg ul li {
+	font-size: 14px;
+	cursor: pointer;
+	padding: 5px 1rem;
+	border-radius: 20px;
+}
+
+.searchSugg ul li:hover {
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.search-btn {
+	padding: 0.5rem 0.8rem;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.weather-info {
+	display: flex;
+	justify-content: space-between;
+}
+
+.temperature-info {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 30px;
+	padding: 10px 0;
+}
+
+.left-info {
+	flex: 4;
+	font-size: 20px;
+	margin-right: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.right-info {
+	margin-top: 2px;
+	flex: 5;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.right-info div:not(:last-child) {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.right-info div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.icon {
+	width: 35%;
+	margin-right: 5px;
+	pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+	.weather-card {
+		width: 60vw;
+		padding: 1.5rem;
+	}
+}
+
+@media (max-width: 820px) {
+	.weather-card {
+		width: 60vw;
+		padding: 1.5rem;
+	}
+
+	.input-box .input {
+		width: calc(100% - 50px);
+		margin-right: 5px;
+		padding: 0.5rem 1rem;
+		font-size: 16px;
+		color: #ffffff;
+		border-radius: 25px;
+		outline: none;
+		border: none;
+	}
+
+	.weather-info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.icon {
+		width: 20%;
+		margin-right: 5px;
+	}
+
+	.temperature-info {
+		display: flex;
+		justify-content: flex-start;
+		font-size: 1.6rem;
+		padding: 1rem 0;
+	}
+
+	.left-info {
+		font-size: 19px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-bottom: 1rem;
+		margin-right: 0;
+		padding-bottom: 5px;
+		border-bottom: 2px solid rgba(0, 0, 0, 0.616);
+	}
+
+	.right-info p:not(:last-child) {
+		border-bottom: none;
+		padding-bottom: 0px;
+		margin-bottom: 5px;
+	}
+}
+
+@media (max-width: 480px) {
+	.weather-card {
+		width: 80vw;
+	}
 }
